@@ -2,22 +2,41 @@
   margin: 1rem 0;
 }
 
-.form-control label,
-.form-control input,
-.form-control textarea {
-  display: block;
-  width: 100%;
-  margin-bottom: 0.25rem;
+.form-control placeholder{
+  font-family: 'Open Sans', sans-serif;
+
 }
 
-.form-control input,
-.form-control textarea {
-  border: 1px solid #a1a1a1;
-  font: inherit;
-  border-radius: 2px;
-}
+.form-control input {
+  outline: none;
+    display: block;
+    width: 100%;
+    border: 1px solid darken($white, 15%);
+    margin: 0 0 20px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    @include transition(.3s ease);
+    &:focus {
+      border: 1px solid $accent;
+      color: $dark-gray;
+    }
 
-.form-control input:focus,
-.form-control textarea:focus {
-  outline-color: #00695c;
+}
+.login-form button{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+.login-title{
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  font-size: 20px;
 }

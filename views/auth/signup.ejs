@@ -8,19 +8,17 @@
 
     <main>
         <form class="login-form" action="/signup" method="POST">
+            <label class="login-title">Get started with a free account</label>
             <div class="form-control">
-                <label for="email">E-Mail</label>
-                <input type="email" name="email" id="email">
+                <input type="email" name="email" id="email" placeholder="E-mail">
             </div>
             <div class="form-control">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password">
+                <input type="password" name="password" id="password" placeholder="Password">
             </div>
             <div class="form-control">
-                <label for="confirmPassword">Confirm Password</label>
-                <input type="password" name="confirmPassword" id="confirmPassword">
+                <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm password">
             </div>
-            <button class="btn" type="submit">Signup</button>
+            <button class="btn" type="submit">SIGN UP</button>
         </form>
     </main>
 <%- include('../includes/end.ejs') %>
