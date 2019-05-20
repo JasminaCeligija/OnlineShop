@@ -25,9 +25,8 @@ const userSchema = new Schema({
   }
 });
 
-
 userSchema.methods.addToCart = function(product) {
-  // provjeri da li se proizvod vec nalazi u korpi i ako se nalazi vrati njegov indeks
+  
   const cartProductIndex = this.cart.items.findIndex(cp => {
     return cp.productId.toString() === product._id.toString();
   });
@@ -47,10 +46,11 @@ userSchema.methods.addToCart = function(product) {
     items: updatedCartItems
   };
   this.cart = updatedCart;
+  console.log("THIS CART ITEMMMMMMMS");
+  console.log(this.cart.items);
   return this.save();
 };
 
-// Briše jedan proizvod iz korpe
 userSchema.methods.removeFromCart = function(productId) {
   const updatedCartItems = this.cart.items.filter(item => {
     return item.productId.toString() !== productId.toString();
@@ -64,5 +64,5 @@ userSchema.methods.clearCart = function() {
   return this.save();
 };
 
-
 module.exports = mongoose.model('User', userSchema);
+
