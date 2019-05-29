@@ -23,6 +23,12 @@ const productSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User',
     required: true
+  },
+  quantity: {
+    type: Number
+  },
+  criticalQuantity: {
+    type: Number
   }
 });
 

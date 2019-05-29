@@ -9,7 +9,7 @@
                 <% if (prods.length > 0) { %>
                     <div class="grid">
                         <% for (let product of prods) { %>
-                            <article class="card product-item">
+                            <article class="card product-item <%= product.quantity < product.criticalQuantity ? 'lacking' : '' %>">
                                 <header class="card__header">
                                     <h1 class="product__title">
                                         <%= product.title %>
@@ -34,6 +34,10 @@
                                     </form>
 
                                 </div>
+                                <div class="product-quantity">
+                                    Quantity: <input disabled id="quantity-input" value="<%= product.quantity %>"></input>
+                                </div>
+                                <p class="product-quantity <%= product.quantity < product.criticalQuantity ? '' : 'invisible' %>" style="color: darkred;">Min quantity: <%= product.criticalQuantity %></p>
                             </article>
                             <% } %>
                     </div>

@@ -25,3 +25,21 @@
 .product__description {
     text-align: center;
 }
+
+.product-quantity {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#quantity-input {
+    text-align: center;
+    width: 50px;
+}
+
+.lacking {
+    background-color: #c17f7f;
+}
+
+.invisible {
+    visibility: hidden;
+}

@@ -1,4 +1,5 @@
 const Product = require('../models/product');
+const User = require('../models/user');
 
 exports.getAddProduct = (req, res, next) => {
   res.render('admin/edit-product', {
@@ -61,6 +62,8 @@ exports.postEditProduct = (req, res, next) => {
   const updatedPrice = req.body.price;
   const updatedImageUrl = req.body.imageUrl;
   const updatedDesc = req.body.description;
+  const updatedQuantity = req.body.quantity;
+  const updatedCriticalQuantity = req.body.criticalQuantity;
 
   Product.findById(prodId)
     .then(product => {
@@ -68,6 +71,9 @@ exports.postEditProduct = (req, res, next) => {
       product.price = updatedPrice;
       product.description = updatedDesc;
       product.imageUrl = updatedImageUrl;
+      product.quantity = updatedQuantity;
+      product.criticalQuantity = updatedCriticalQuantity;
+
       return product.save();
     })
     .then(result => {
@@ -92,6 +98,23 @@ exports.getProducts = (req, res, next) => {
     })
     .catch(err => console.log(err));
 };
+
+exports.getUsers = (req, res, next) => {
+  User.find()
+     //.select('title price -_id')
+    // .populate('userId', 'name')
+    .then(users => {
+      console.log(users);
+      res.render('admin/usermanagment', {
+        users: users,
+        pageTitle: 'User Managment',
+        path: '/admin/usermanagment',
+        isAuthenticated: req.session.isLoggedIn
+      });
+    })
+    .catch(err => console.log(err));
+};
+
 
 exports.postDeleteProduct = (req, res, next) => {
   const prodId = req.body.productId;
