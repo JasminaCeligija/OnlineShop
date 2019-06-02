@@ -3,10 +3,22 @@
     max-width: 90%;
     margin: auto;
     display: block;
+    margin-top: 50%;
+
+    width: 30rem;
+    display: block;
+    padding:40px 40px 40px 40px;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .product-item {
-    width: 20rem;
+    width: 25rem;
     max-width: 95%;
     margin: 1rem;
 }
@@ -18,7 +30,7 @@
 
 .product__price {
     text-align: center;
-    color: #4d4d4d;
+    color: black;
     margin-bottom: 0.5rem;
 }
 
@@ -29,6 +41,7 @@
 .product-quantity {
     text-align: center;
     margin-bottom: 10px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 #quantity-input {
@@ -37,9 +50,36 @@
 }
 
 .lacking {
-    background-color: #c17f7f;
+  border-style: solid;
+  border-color: red;
+  border-width: thick;
 }
 
 .invisible {
     visibility: hidden;
+}
+.btnedit, .btndelete{
+  display: inline-block;
+  padding: 0.25rem 1rem;
+  text-decoration: none;
+  font: inherit;
+  color: white;
+  width: 50%;
+  cursor: pointer;
+  font-weight: normal;
+  padding: 10px;
+  border:none;
+}
+.btnedit{
+  background-color: #005ce6;
+}
+.btndelete{
+  background-color: #cc0000;
+
+}
+.btndelete:hover, .btndelete:active{
+  background-color:  #ff1a1a;
+}
+.btnedit:hover, .btnedit:active{
+  background-color: #3385ff;
 }

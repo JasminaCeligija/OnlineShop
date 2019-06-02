@@ -2,13 +2,15 @@
   margin: 1rem 0;
 }
 
-.form-control placeholder{
+.form-control, placeholder{
   font-family: 'Open Sans', sans-serif;
-
+}
+.product-form button{
+  width: 100%;
 }
 
-.form-control input {
-  outline: none;
+.form-control input, textarea {
+    outline: none;
     display: block;
     width: 100%;
     border: 1px solid darken($white, 15%);

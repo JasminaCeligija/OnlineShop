@@ -8,10 +8,11 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Open Sans', sans-serif;
-  background-image: url("prva.jpg");
-  background-repeat: no-repeat;
+  background-image: url("joj.jpg");
+  background-size: cover;
   margin-left: auto;
   margin-right: auto;
+
 }
 
 main {
@@ -185,6 +186,8 @@ form {
 
 .card {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  /*background-color: rgba(255, 255, 255, 0.4);*/
+  background-color: white;
 }
 
 .card__header,
@@ -197,6 +200,11 @@ form {
 .card__content h2,
 .card__content p {
   margin: 0;
+  font-weight: normal;
+  font-size: 20px;
+}
+.card__header h1{
+  font-weight: bold;
 }
 
 .card__image {
@@ -204,7 +212,10 @@ form {
 }
 
 .card__image img {
-  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
 }
 
 .card__actions {
@@ -217,23 +228,28 @@ form {
   margin: 0 0.25rem;
 }
 
-.btn {
+.btn, .btnadd {
   display: inline-block;
   padding: 0.25rem 1rem;
   text-decoration: none;
   font: inherit;
-  border: 1px solid black;
-  color: black;
-  background: white;
+  /*border: 1px solid black;*/
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  background-color: black;
+  color: white;
+  width: 80%;
   border-radius: 3px;
   cursor: pointer;
   font-weight: bold;
+  padding: 10px;
+  border: none;
 }
 
 .btn:hover,
 .btn:active {
   background-color: #ffeb3b;
   color: black;
+  opacity: 1;
 }
 
 .btn.danger {

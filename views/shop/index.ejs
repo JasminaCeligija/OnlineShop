@@ -1,5 +1,6 @@
 <%- include('../includes/head.ejs') %>
     <link rel="stylesheet" href="/css/product.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -22,7 +23,7 @@
                             <p class="product__description"><%= product.description %></p>
                         </div>
                         <div class="card__actions">
-                            <a href="/products/<%= product._id %>" class="btn">More details</a>
+                            <a href="/products/<%= product._id %>" class="btn">More details</a><br></br>
                             <% if (isAuthenticated) { %>
                                 <%- include('../includes/add-to-cart.ejs', {product: product}) %>
                             <% } %>
