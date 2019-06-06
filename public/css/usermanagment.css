@@ -1,0 +1,19 @@
+.userlist{
+  text-align: center;
+  margin: auto;
+  font-family: 'Open Sans', sans-serif;
+  padding: 1px;
+  text-align: left;
+  color: white;
+  border-bottom: 1px solid white;
+  width: 40%;
+  background-color: rgba(0, 0, 0, 0.5);
+
+}
+.naslov{
+  text-align: center;
+  font-size: 2rem;
+}
+p{
+  margin-left: 3%;
+}

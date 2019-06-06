@@ -1,15 +1,16 @@
 <%- include('../includes/head.ejs') %>
     <link rel="stylesheet" href="/css/product.css">
+    <link rel="stylesheet" href="/css/usermanagment.css">
     </head>
 
     <body>
         <%- include('../includes/navigation.ejs') %>
-        <h1>List of users:</h1>
+        <h1 class="naslov">Users</h1>
+
         <% for (let user of users) { %>
-            <div style="text-align: center; border-bottom: solid 2px gray;">
-                User:
-                <p><%=user.email%></p>
+            <div  class="userlist">
+                <p> <%=user.email%></p>
             </div>
-            <% } %>
-           
+        <% } %>
+
             <%- include('../includes/end.ejs') %>
