@@ -1,4 +1,5 @@
 const bcrypt = require('bcryptjs');
+const fs = require("fs");
 
 const User = require('../models/user');
 
@@ -48,6 +49,7 @@ exports.postLogin = (req, res, next) => {
     .catch(err => console.log(err));
 };
 
+
 exports.postSignup = (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
@@ -67,7 +69,26 @@ exports.postSignup = (req, res, next) => {
             role: role,
             cart: { items: [] }
           });
-          return user.save();
+
+          var date = new Date();
+
+          //log datoteka
+            fs.readFile('./signup.json', function (err, data) {
+              if(err)
+              console.log(err);
+              var json = JSON.parse(data);
+              var newJSONUser = {
+                "User" : user.email,
+                "Date": date.getDay() + '.' + date.getMonth() + '.' + date.getFullYear() + '.',
+                "Time": date.getHours() + ':' + date.getMinutes()
+              }
+              json.push(newJSONUser);    
+              fs.writeFile("./signup.json", JSON.stringify(json), function(err){
+                if (err) throw err;
+                console.log('New data was appended to file!');
+              });
+          })
+        return user.save();
         })
         .then(result => {
           res.redirect('/login');

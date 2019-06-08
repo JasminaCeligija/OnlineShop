@@ -1,5 +1,6 @@
 const Product = require('../models/product');
 const User = require('../models/user');
+const fs = require("fs");
 
 exports.getAddProduct = (req, res, next) => {
   res.render('admin/edit-product', {
@@ -37,6 +38,59 @@ exports.postAddProduct = (req, res, next) => {
     .catch(err => {
       console.log(err);
     });
+};
+
+
+var allOrders = [];
+exports.getUserDetails = (req, res, next) => {
+
+const userId = req.params.userId;
+User.findById(userId)
+  .then(user => {
+    if (!user) {
+      return res.redirect('/'); 
+    }
+    
+    fs.readFile('./signup.json', function (err, data) {
+      if(err)
+      console.log(err);
+     
+      var signedUpUsers = JSON.parse(data);
+     
+      signedUpUsers.forEach(function (signedUpUser) {
+        if(signedUpUser.User == user.email) {
+
+          fs.readFile('./orders.json', function (err, ordersArray) {
+            if(err)
+            console.log(err);
+            var orders = JSON.parse(ordersArray);
+
+            orders.forEach(function (order) {
+              if(order.User == user.email) {
+                allOrders.push(order);
+              }
+                  
+              
+        });
+        })
+        res.render('admin/user-details', {
+          pageTitle: 'User Details',
+          path: '/admin/user-details',
+          user: user,
+          isAuthenticated: req.session.isLoggedIn, 
+          role: req.session.userRole, 
+          signedUpUser: signedUpUser, 
+          orders: allOrders
+        });
+
+
+        }
+  });
+  })
+
+
+  })
+  .catch(err => console.log(err));
 };
 
 exports.getEditProduct = (req, res, next) => {

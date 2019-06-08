@@ -1,5 +1,6 @@
 const Product = require('../models/product');
 const Order = require('../models/order');
+const fs = require('fs');
 
 exports.getProducts = (req, res, next) => {
   Product.find()
@@ -9,7 +10,7 @@ exports.getProducts = (req, res, next) => {
         prods: products,
         pageTitle: 'All Products',
         path: '/products',
-        isAuthenticated: req.session.isLoggedIn, 
+        isAuthenticated: req.session.isLoggedIn,
         role: req.session.userRole
       });
     })
@@ -26,7 +27,7 @@ exports.getProduct = (req, res, next) => {
         product: product,
         pageTitle: product.title,
         path: '/products',
-        isAuthenticated: req.session.isLoggedIn, 
+        isAuthenticated: req.session.isLoggedIn,
         role: req.session.userRole
       });
     })
@@ -40,7 +41,7 @@ exports.getIndex = (req, res, next) => {
         prods: products,
         pageTitle: 'Shop',
         path: '/',
-        isAuthenticated: req.session.isLoggedIn, 
+        isAuthenticated: req.session.isLoggedIn,
         role: req.session.userRole
       });
     })
@@ -60,7 +61,7 @@ exports.getCart = (req, res, next) => {
         path: '/cart',
         pageTitle: 'Your Cart',
         products: products,
-        isAuthenticated: req.session.isLoggedIn, 
+        isAuthenticated: req.session.isLoggedIn,
         role: req.session.userRole
       });
     })
@@ -101,11 +102,31 @@ exports.postOrder = (req, res, next) => {
       });
       const order = new Order({
         user: {
-          name: req.user.name,
+          email: req.user.email,
           userId: req.user
         },
         products: products
       });
+
+      var date = new Date();
+      //log datoteka
+      fs.readFile('./orders.json', function (err, data) {
+        if (err)
+          console.log(err);
+        var json = JSON.parse(data);
+
+        var newJSONOrder = {
+          "User": order.user.email,
+          "Date": date.getDay() + '.' + date.getMonth() + '.' + date.getFullYear() + '.',
+          "Time": date.getHours() + ':' + date.getMinutes()
+        }
+        json.push(newJSONOrder);
+        fs.writeFile("./orders.json", JSON.stringify(json), function (err) {
+          if (err) throw err;
+          console.log('New data was appended to file!');
+        });
+      })
+
       return order.save();
     })
     .then(result => {
@@ -124,7 +145,7 @@ exports.getOrders = (req, res, next) => {
         path: '/orders',
         pageTitle: 'Your Orders',
         orders: orders,
-        isAuthenticated: req.session.isLoggedIn, 
+        isAuthenticated: req.session.isLoggedIn,
         role: req.session.userRole
       });
     })

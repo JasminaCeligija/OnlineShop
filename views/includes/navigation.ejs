@@ -5,7 +5,7 @@
         <ul class="main-header__item-list">
          
             <% if (isAuthenticated) { %>
-                <% if (role != null && role == 'user') { %>
+                <% if (role != null && role != 'undefined' && role == 'user') { %>
                     <li class="main-header__item">
                         <a class="<%= path === '/products' ? 'active' : '' %>" href="/products">PRODUCTS</a>
                     </li> 
