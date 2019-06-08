@@ -1,31 +1,32 @@
 <%- include('../includes/head.ejs') %>
     </head>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+      <link rel="stylesheet" href="/css/usermanagment.css">
     <body>
         <%- include('../includes/navigation.ejs') %>
-        <main class="centered" style="width: 30rem">
-            <h1>User email <%= user.email %></h1>
+        <main class="centered" style="width: 50rem; margin-top: 2rem;" >
+            <h1>User email:  <%= user.email %></h1>
             <table>
                 <tr>
-                   <th>User</th><th>Signed up</th>
+                   <th>User</th><th> Signed up</th>
                 </tr>
-             
+
                   <tr>
                    <td>"<%= signedUpUser.User %>"</td>
-                   <td><%= signedUpUser.Date %> <%= signedUpUser.Time %></td>
-                   <td><%=orders.length%></td>
-                 </tr> 
+                   <td class="druga"><%= signedUpUser.Date %> <%= signedUpUser.Time %></td>
+                 </tr>
+              </table>
+              <table>
                  <tr>
                     <th>Orders</th>
-                 </tr>   
+                 </tr>
                  <% for (let order of orders) { %>
-                    
+
                     <tr>
                       <td><%= order.Date %> <%= order.Time%></td>
-                    </tr>    
-                   <% } %> 
-               
+                    </tr>
+                   <% } %>
+
              </table>
 
         </main>

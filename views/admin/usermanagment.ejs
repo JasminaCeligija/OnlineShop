@@ -8,10 +8,10 @@
         <h1 class="naslov">Users</h1>
 
         <% for (let user of users) { %>
-                
+
                 <div class="userlist card__actions">
-                    <a href="/admin/user-details/<%= user._id %>" class="btn"><%=user.email%></a><br></br>
+                    <a href="/admin/user-details/<%= user._id %>" class="btnlist" style="margin: auto;"><%=user.email%></a> <br></br>
                 </div>
         <% } %>
-        
+
             <%- include('../includes/end.ejs') %>

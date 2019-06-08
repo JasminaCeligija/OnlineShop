@@ -1,4 +1,4 @@
-.userlist, button{
+.userlist{
   text-align: center;
   margin: auto;
   font-family: 'Open Sans', sans-serif;
@@ -6,24 +6,32 @@
   text-align: left;
   color: white;
   border-bottom: 1px solid white;
-  width: 40%;
-  background-color: rgba(0, 0, 0, 0.4);
-
-}
-button{
-  border: none;
-  color: white;
-  width: 100%;
-  font-size: 15px;
-}
-button:hover{
-  background-color: rgba(255, 255, 255, 0.9);
-  color: black;
+  width: 30%;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .naslov{
   text-align: center;
   font-size: 2rem;
 }
+
 p{
   margin-left: 3%;
+}
+h1{
+  font-family: 'Open Sans', sans-serif;
+}
+table, th, tr, td{
+}
+td{
+  width: 50rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  height: 2rem;
+}
+th{
+  background-color: black;
+  color: white;
+  align:center;
+}
+.druga{
+  width: 20rem;
 }

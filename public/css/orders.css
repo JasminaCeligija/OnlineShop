@@ -2,15 +2,19 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 50rem;
+  margin: auto;
 }
 
 .orders__item h1 {
     margin: 0;
     font-size: 1rem;
+    color: gray;
 }
 
 .orders__item {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
   padding: 1rem;
   margin-bottom: 1rem;
 }
@@ -24,6 +28,10 @@
 .orders__products-item {
     margin: 0.5rem 0;
     padding: 0.5rem;
-    border: 1px solid #00695c;
-    color: #00695c;
+    color: black;
+    font-weight: bold;
+    margin: auto;
+}
+main{
+  margin-top: 9rem;
 }

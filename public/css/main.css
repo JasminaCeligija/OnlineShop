@@ -228,8 +228,12 @@ form {
 .card__actions a {
   margin: 0 0.25rem;
 }
+.btnlist{
+  width: 100%;
+  text-align: center;
+}
 
-.btn, .btnadd {
+.btn, .btnadd, .btnlist {
   display: inline-block;
   padding: 0.25rem 1rem;
   text-decoration: none;
@@ -238,16 +242,19 @@ form {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   background-color: black;
   color: white;
-  width: 80%;
+
   border-radius: 3px;
   cursor: pointer;
   font-weight: bold;
   padding: 10px;
   border: none;
 }
+.btn, .btnadd{
+  width: 80%;
+}
 
 .btn:hover,
-.btn:active {
+.btn:active, .btnlist:hover, .btnlist:active {
   background-color: #ffeb3b;
   color: black;
   opacity: 1;
