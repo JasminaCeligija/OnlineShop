@@ -1,4 +1,4 @@
-.userlist{
+.userlist, button{
   text-align: center;
   margin: auto;
   font-family: 'Open Sans', sans-serif;
@@ -7,8 +7,18 @@
   color: white;
   border-bottom: 1px solid white;
   width: 40%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.4);
 
+}
+button{
+  border: none;
+  color: white;
+  width: 100%;
+  font-size: 15px;
+}
+button:hover{
+  background-color: rgba(255, 255, 255, 0.9);
+  color: black;
 }
 .naslov{
   text-align: center;
